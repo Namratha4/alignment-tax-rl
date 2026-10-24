@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+wandb/
+outputs/
+# output of the first local lm_eval CLI tour: includes a dump of this machine's environment
+results/Qwen__*/

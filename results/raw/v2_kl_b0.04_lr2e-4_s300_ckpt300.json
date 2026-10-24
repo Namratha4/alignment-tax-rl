@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "adapter_path": "/vol/checkpoints/kl_b0.04_lr2e-4_s300/checkpoint-300",
+    "tasks": [
+      "gsm8k",
+      "mmlu_high_school_us_history",
+      "mmlu_high_school_biology",
+      "mmlu_philosophy",
+      "mmlu_high_school_government_and_politics",
+      "mmlu_clinical_knowledge",
+      "ifeval",
+      "humaneval_instruct"
+    ],
+    "limit": 200,
+    "apply_chat_template": true,
+    "batch_size": 8,
+    "eval_version": "v2",
+    "lm_eval_version": "0.4.13",
+    "max_length": null
+  },
+  "results": {
+    "gsm8k": {
+      "name": "gsm8k",
+      "alias": "gsm8k",
+      "sample_len": 200,
+      "exact_match,strict-match": 0.3,
+      "exact_match_stderr,strict-match": 0.03248501780682212,
+      "exact_match,flexible-extract": 0.575,
+      "exact_match_stderr,flexible-extract": 0.035043046034511346
+    },
+    "mmlu_high_school_us_history": {
+      "name": "mmlu_high_school_us_history",
+      "alias": "high_school_us_history",
+      "sample_len": 200,
+      "acc,none": 0.745,
+      "acc_stderr,none": 0.03089738243291865
+    },
+    "mmlu_high_school_biology": {
+      "name": "mmlu_high_school_biology",
+      "alias": "high_school_biology",
+      "sample_len": 200,
+      "acc,none": 0.74,
+      "acc_stderr,none": 0.031093957143700304
+    },
+    "mmlu_philosophy": {
+      "name": "mmlu_philosophy",
+      "alias": "philosophy",
+      "sample_len": 200,
+      "acc,none": 0.65,
+      "acc_stderr,none": 0.0338114785302567
+    },
+    "mmlu_high_school_government_and_politics": {
+      "name": "mmlu_high_school_government_and_politics",
+      "alias": "high_school_government_and_politics",
+      "sample_len": 193,
+      "acc,none": 0.8134715025906736,
+      "acc_stderr,none": 0.0281120912101175
+    },
+    "mmlu_clinical_knowledge": {
+      "name": "mmlu_clinical_knowledge",
+      "alias": "clinical_knowledge",
+      "sample_len": 200,
+      "acc,none": 0.695,
+      "acc_stderr,none": 0.03263741725420572
+    },
+    "ifeval": {
+      "name": "ifeval",
+      "alias": "ifeval",
+      "sample_len": 200,
+      "prompt_level_strict_acc,none": 0.34,
+      "prompt_level_strict_acc_stderr,none": 0.03358032446172571,
+      "inst_level_strict_acc,none": 0.46540880503144655,
+      "inst_level_strict_acc_stderr,none": "N/A",
+      "prompt_level_loose_acc,none": 0.41,
+      "prompt_level_loose_acc_stderr,none": 0.034865138597849225,
+      "inst_level_loose_acc,none": 0.5157232704402516,
+      "inst_level_loose_acc_stderr,none": "N/A"
+    },
+    "humaneval_instruct": {
+      "name": "humaneval_instruct",
+      "alias": "humaneval_instruct",
+      "sample_len": 164,
+      "pass@1,create_test": 0.5487804878048781,
+      "pass@1_stderr,create_test": 0.03897619723598805
+    }
+  }
+}
