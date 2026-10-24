@@ -1,13 +1,5 @@
-"""Step 3: GSM8K dataset builder and verifiable reward functions."""
+"""GSM8K dataset builder and the verifiable reward functions (correctness + format)."""
 
-# TODO 1: extract_answer(text) -> str | None    (contents of <answer>...</answer>)
-# TODO 2: correctness_reward(completions, answer, **kwargs) -> list[float]
-#         (normalize commas / $ before comparing; 1.0 match, 0.0 otherwise)
-# TODO 3: format_reward(completions, **kwargs) -> list[float]   (small reward if tag present)
-# TODO 4: build_dataset() -> Dataset with "prompt" (chat messages) and "answer" (text after ####)
-# TODO 5: __main__ block testing with fake completions: correct, wrong, no tags, "$1,234" style
-#
-# Run with:  python gsm8k_reward.py
 import re
 from datasets import load_dataset
 
@@ -70,6 +62,3 @@ if __name__ == "__main__":
   fake_answers = ["12", "12", "1234", "5"]
   print(correctness_reward(completions, fake_answers))
   print(format_reward(completions))
-  
-  
-  

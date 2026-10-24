@@ -1,12 +1,7 @@
-"""Step 2: Modal Volume demo -- a counter that survives across containers."""
+"""Modal Volume demo: a counter that survives across containers.
 
-# TODO 1: import modal, os; create the App
-# TODO 2: create the Volume with modal.Volume.from_name(..., create_if_missing=True)
-# TODO 3: bump() -- mounted at /vol; read /vol/counter.txt (missing -> 0), add 1,
-#         write back, vol.commit(), return the new value
-# TODO 4: local entrypoint that calls bump.remote() and prints the result
-#
-# Run 3 times with:  modal run volume_demo.py
+Run repeatedly with:  modal run volume_demo.py
+"""
 
 import modal
 from pathlib import Path
@@ -33,4 +28,3 @@ def bump():
 @app.local_entrypoint()
 def main():
   print(bump.remote())
-  

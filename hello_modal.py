@@ -1,13 +1,7 @@
-'''
-# Step 1: Hello-GPU on Modal
-#
-# TODO 1: import modal (and torch/platform where you use them), create the App
-# TODO 2: define an image with torch installed
-# TODO 3: cloud function on a T4 -> returns (GPU name, hostname)
-# TODO 4: local entrypoint that calls it with .remote() and prints the result
-#
-# Run with:  modal run hello_modal.py
-'''
+"""Hello-GPU: run a function on a Modal T4 and report the GPU name and host it ran on.
+
+Run with:  modal run hello_modal.py
+"""
 
 import modal
 import platform
@@ -31,5 +25,3 @@ def my_fn():
 def main():
   result = my_fn.remote()
   print(result)
-
-  

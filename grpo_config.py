@@ -1,24 +1,7 @@
-"""Step 4 (pass 1): LoRA + GRPO config for the naive (beta ~ 0) run. Config objects only, no training."""
+"""LoRA config and GRPO training arguments. beta, steps, learning rate and save interval are parameters.
 
-# TODO 1: import LoraConfig (peft) and GRPOConfig (trl)
-# TODO 2: lora_config -- r=16, lora_alpha=32, target_modules="all-linear", task_type="CAUSAL_LM"
-# TODO 3: training_args = GRPOConfig(...) with:
-#           output_dir            (a path; later this will live on the Volume)
-#           num_generations       G, completions per prompt
-#           per_device_train_batch_size   counts COMPLETIONS -- must be divisible by num_generations
-#           gradient_accumulation_steps   more prompts per optimizer update
-#           beta                  KL coefficient -- near 0 for the naive run
-#           learning_rate
-#           max_steps             small (~20) for the throwaway run
-#           use_vllm=True, vllm_mode="colocate"
-#           report_to="wandb"
-# TODO 4: __main__ block that prints both objects, so you can check they construct
-#
-# Questions to be ready for:
-#   - how many unique prompts does one optimizer update see with your values?
-#   - why beta near 0 for this run (which row of the experiment matrix is it)?
-#
-# Run with:  python grpo_config.py   (needs `pip install trl peft` locally; no GPU needed)
+Print a config locally (no GPU):  python grpo_config.py --run-name t --beta 0.04
+"""
 
 from peft import LoraConfig
 from trl import GRPOConfig
@@ -61,20 +44,3 @@ if __name__ == "__main__":
 
   print(peft_config)
   print(training_args)
-
-
-# ---- Step 8: parameterize for Phase 2 ----
-# TODO 1: make_training_args takes max_steps, learning_rate, save_steps as parameters
-#         (give them defaults so old calls still work), and uses them in GRPOConfig.
-# TODO 2: add --max-steps (int), --lr (float), --save-steps (int) to the argparse block
-#         in __main__ and pass them through, so you can check the printed config locally.
-#
-# Useful numbers: one optimizer step = 16 prompts x 4 completions = 64 completions
-# (you worked this out earlier). GSM8K train has 7473 prompts. So one epoch ~ how many steps?
-  
-  
-  
-  
-  
-  
-   
